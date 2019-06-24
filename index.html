@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+      <title>Aurora</title>
+      <link rel="stylesheet" href="style.css"/>
+      <meta charset="UTF-8">
+  </head>
+  <body>
+      <div class="head">
+        <header>
+            <nav id="right_nav">
+               <ul>
+                 <li class="weather noSelect js-weather"></li>
+                            
+
+               </ul>
+            </nav>
+        </header>
+      </div>
+      <div id="wrapper" class="home">
+          <div class="formArea js-clock">
+                <h1 class="noSelect">00:00</h1> 
+            <form class="form js-form">
+                  <input class="noSelect" type="text" minlength="1" maxlength="100" size="25" placeholder="Type your name here" /> 
+            </form>
+            <h4 class="js-greetings noSelect greetings"></h4>
+            <form class="toDoForm js-toDoForm">
+                  <input class="noSelect" type="text" minlength="1" maxlength="100" size="15" placeholder="Write a To Do here" />           
+            </form>
+            <ul class="noSelect toDoList js-toDoList"> 
+                  <!-- <div class="sortButton js-ascendingBtn"></div>
+                  <div class="sortButton js-descendingBtn"></div> -->
+            </ul>
+          </div>
+      </div>
+      <script src="clock.js"></script>
+      <script src="greeting.js"></script>
+      <script src="todo.js"></script>
+      <script src="bg.js"></script>
+      <script src="weather.js"></script>
+  </body>
+</html>

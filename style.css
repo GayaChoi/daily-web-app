@@ -1,0 +1,149 @@
+html, 
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+h1 {
+   display: block;
+   margin-top: 100px;
+   font-size: 120px;
+   font-weight: 100;
+   color: #ffffff; 
+   text-align: center;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 100;
+    color: #ffffff;
+}
+.btn {
+    cursor: pointer;   
+}
+.clicked {
+    color: #7f8c8d;
+}
+.form,
+.greetings {
+    display: none;
+}
+.form,
+h4 {
+    position: relative;
+    top: -70px;
+}
+.noSelect { /* chrome 의 blue highlight 제거 */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.toDoForm {
+    position: relative;
+    top: -90px;
+}
+.form,
+.greetings,
+.toDoForm,
+.toDoList,  
+.weather {
+    margin: 48px -10% 24px;
+    text-align: center;
+    list-style: none;
+    color: #ffffff;
+}
+.toDoList {
+    position: relative;
+    top: -100px;
+    margin: 0 auto;
+    padding: 0;
+}
+.weather {
+    font-size: 12px;
+    opacity: 0.55;
+    vertical-align: baseline;
+    text-overflow: ellipsis;
+}
+.showing {
+    display: block;
+}
+    from {
+       opacity: 0;
+    } 
+    to {
+       opacity: 1;  
+    }
+}
+body.bgImage {
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 0.5s linear; /* 5초간격으로 이미지가 바뀜 */
+    z-index: -2;
+}
+.button-setting {
+     display: inline-block;
+     color: red;
+}
+.toDoList {
+    list-style: none;
+}
+.sortButton {
+    display: inline-block;  
+}
+#wrapper {
+    width: 962px;
+    margin: 0 auto;
+}
+#wrapper.home {
+    padding-top: 100px;
+}
+div.head>header {
+    position: absolute;
+    right: 30px; 
+    top: 10px;
+}
+.imageSize { /* 날씨 아이콘 */
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+}
+#right_nav>ul {
+    margin: 0;
+    padding: 0;
+}
+#right_nav>ul>li {
+    margin: 0;
+    padding: 0;
+}
+form.form>input,
+form.toDoForm>input {  
+    background: transparent;
+    color: #ffffff;
+    padding: 15px;
+    border-color:transparent;
+    border-bottom-color: #ffffff;
+    border-bottom-width: thin;
+    caret-color: #ffffff;
+    text-align: left;
+    font-size: 18px;
+    height: 0px;
+}
+form.form>input:focus,
+form.toDoForm>input:focus {
+    outline: none;
+}
+form.form>input::placeholder {
+    color: #ffffff;
+    opacity: 0.5;
+    font-size: 20px; 
+    text-align: left;
+}
+form.toDoForm>input::placeholder {
+    color: #ffffff;
+    font-size: 15px;
+    text-align: left;
+}
