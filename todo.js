@@ -3,6 +3,7 @@ const toDoForm = document.querySelector(".js-toDoForm"),
       toDoList = document.querySelector(".js-toDoList");
 
       /* TODO: Sort Variable */
+
       //upBtn = toDoList.querySelector(".js-ascendingBtn"), 
       //downBtn = toDoList.querySelector(".js-descendingBtn");
        

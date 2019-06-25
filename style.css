@@ -71,6 +71,7 @@ h4 {
 .showing {
     display: block;
 }
+@keyframes fadeIn { /* 애니메이션 을 정해줌 */
     from {
        opacity: 0;
     } 

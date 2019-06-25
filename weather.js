@@ -5,7 +5,10 @@ const COORDS = "coords";
 function getWeather(lat, lng) {
     //console.log(lat, lng);
     
-    fetch(`http://api.openweathermap.org/data/2.5/weather?id=524901&lat=${lat}&lon=${lng}&mode=JSON&units=metric&appId=${API_KEY}`   
+    //TODOBUG: fetch 부분 404 error 
+    //# Mixed Content (혼합참조) 문제로 인한 버그 발생
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?id=524901&lat=${lat}&lon=${lng}&mode=JSON&units=metric&appId=${API_KEY}`   
     ).then(function(response) {
       return response.json()    
     }).then(function(json) {
@@ -14,11 +17,11 @@ function getWeather(lat, lng) {
         const place = json.name; // api 를 활용하여 지역을 불러옴
         const icon = json.weather[0].icon;
 
-        weather.innerHTML = '<img class="imageSize" src="http://openweathermap.org/img/w/10d.png">' +
+        weather.innerHTML = '<img class="imageSize" src="https://openweathermap.org/img/w/10d.png">' +
                                      
                             `${temperature + "°C" + " | "} ${country + " | "} ${place + " | "}`;
 
-    });// JSON 데이터를 준비 함
+    });// JSON 데이터를 받아올 수 있음.
 }
 
 function saveCoords(coordsObj) {
