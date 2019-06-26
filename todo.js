@@ -42,8 +42,7 @@ function paintToDo(text) { // 사용자가 입력한 list 를 차례대로 받�
     delBtn.innerHTML = "❌"; // vs code emoji 를 사용
      
     delBtn.addEventListener("click", deleteToDo); // 사용자가 삭제 버튼 을 클릭할 경우 삭제 관련 함수 실행
-    
-    //li.className = "list"; 
+
     li.appendChild(span);
     li.appendChild(delBtn);
     
@@ -59,14 +58,16 @@ function paintToDo(text) { // 사용자가 입력한 list 를 차례대로 받�
   
     toDos.push(toDoObj); // toDos 배열 안에 사용자의 list 를 넣어준다.      
     span.innerText = text; 
+    
     saveToDos(); // local 안에 list 를 저장
 }
 
 function handleSubmit(event) { // 입력받은 list 를 확인 하는 함수
     const currentValue = toDoInput.value; // form 안의 input 에 있는 정보를 불러옴
 
-    event.preventDefault(); // 이벤트 기능 을 억제한다.
+    event.preventDefault(); // 이벤트 기능 을 억제한다.       
     paintToDo(currentValue); 
+    toDoInput.value = "";
 }
 
 function loadToDos() { // local 에 저장되어 있는 toDos 를 불러온다.

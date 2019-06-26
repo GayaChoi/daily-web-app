@@ -138,7 +138,7 @@ form.toDoForm>input:focus {
      outline: none;          
 }
 form.form>input::placeholder {
-    opacity: 0.5;
+     opacity: 0.5;
 }
 form.form>input,
 form.toDoForm>input

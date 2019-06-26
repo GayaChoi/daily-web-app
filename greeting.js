@@ -5,7 +5,7 @@ const form = document.querySelector(".js-form"),
   const USER_LS = "currentUser",  // local 내에 User 정보를 받아와서 저장 해줌
         SHOWING_CN = "showing";  //  form 내에 들어갈 class 명칭
    
-  function saveName(text) {
+  function saveName(text) { // local 에서 사용자의 이름 을 저장 하는 함수
         localStorage.setItem(USER_LS, text);  
   }   
 
