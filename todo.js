@@ -28,9 +28,68 @@ function deleteToDo(event) {
     saveToDos();
 }
 
-function saveToDos() { 
-   localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); // object 를 string 으로 변환(반대도 성립)
+function saveToDos() { // list 의 내용을 local 에 저장
+   localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); // object 를 string 으로 변환(반대도 성립) , Javascript 의 객체를 문자열 형태로 반환
 }
+
+function paintToDo(text) { // 사용자가 입력한 list 를 차례대로 받는다.html 상에 list 정보를 기입한다.
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    const newId = toDos.length + 1; // list 의 번호는 1부터 시작 된다.    
+    const delBtn = document.createElement("div");
+    
+    delBtn.className = "button-setting"; 
+    delBtn.innerHTML = "❌"; // vs code emoji 를 사용
+     
+    delBtn.addEventListener("click", deleteToDo); // 사용자가 삭제 버튼 을 클릭할 경우 삭제 관련 함수 실행
+    
+    //li.className = "list"; 
+    li.appendChild(span);
+    li.appendChild(delBtn);
+    
+    li.id = newId; // toDos 에 저장 되는 순서에 따라 list 의 번호가 지정됨.
+    
+    // TODO: callback 함수 개념 다시 이해 하기
+    toDoList.appendChild(li); // TODO_BUG: Uncaught TypeError: Cannot read property ‘appendChild’ of null => callback 할 때 null 이 리턴
+    
+    const toDoObj = {
+        text: text,       // list 의 내용
+        id: newId         // list 의 번호
+    };   
+  
+    toDos.push(toDoObj); // toDos 배열 안에 사용자의 list 를 넣어준다.      
+    span.innerText = text; 
+    saveToDos(); // local 안에 list 를 저장
+}
+
+function handleSubmit(event) { // 입력받은 list 를 확인 하는 함수
+    const currentValue = toDoInput.value; // form 안의 input 에 있는 정보를 불러옴
+
+    event.preventDefault(); // 이벤트 기능 을 억제한다.
+    paintToDo(currentValue); 
+}
+
+function loadToDos() { // local 에 저장되어 있는 toDos 를 불러온다.
+    const loadedToDos = localStorage.getItem(TODOS_LS); 
+    
+    if (loadedToDos !== null) {
+        const parsedToDos = JSON.parse(loadedToDos); // 문자열을 자바스크립트 Object 형태로 만들어준다. 
+
+        parsedToDos.forEach(function(toDo) {  
+            paintToDo(toDo.text); // toDo 객체 안에 있는 것을 전달해준다.(toDo -> 사용자 가 입력한 list)
+        }); // forEach
+    } // if end    
+} // loadToDos function
+
+function init() {
+    loadToDos(); // local 에 있는 toDos 를 불러오는 함수
+    toDoForm.addEventListener("submit", handleSubmit); // 사용자가 form 에 내용을 전달하면 handleSubmit 함수 가 실행 
+    //upBtn.addEventListener("click", ascendingSort);
+    //downBtn.addEventListener("click", descendingSort);  
+}
+
+init();
+
 /* TODO_BUG: Sort error 리스트가 밀리는 현상 */
 /*function ascendingSort() {  // 오름차순 정렬
     toDos.sort(function (a, b) {
@@ -71,63 +130,4 @@ function descendingSort() { // 내림차순 정렬
     
     saveToDos(); 
 }*/
-
-function paintToDo(text) {
-    const li = document.createElement("li");
-    const span = document.createElement("span");
-    const newId = toDos.length + 1;     
-    const delBtn = document.createElement("div");
-    
-    delBtn.className = "button-setting"; 
-    delBtn.innerHTML = "❌";
-     
-    delBtn.addEventListener("click", deleteToDo);
-    
-    li.className = "list"; 
-    li.appendChild(span);
-    li.appendChild(delBtn);
-    
-    li.id = newId;
-    
-    // TODO: callback 함수 개념 다시 이해 하기
-    toDoList.appendChild(li); // TODO_BUG: Uncaught TypeError: Cannot read property ‘appendChild’ of null => callback 할 때 null 이 리턴
-    
-    const toDoObj = {
-        text: text,
-        id: newId
-    };   
-  
-    toDos.push(toDoObj);  
-    span.innerText = text;
-    saveToDos(); // local 안에 TODO 를 저장
-}
-
-function handleSubmit(event) {
-    const currentValue = toDoInput.value;
-
-    event.preventDefault(); // 이벤트 기능 을 억제한다.
-    paintToDo(currentValue);
-    toDoInput.value = "";
-}
-
-function loadToDos() {
-    const loadedToDos = localStorage.getItem(TODOS_LS);
-    
-    if (loadedToDos !== null) {
-        const parsedToDos = JSON.parse(loadedToDos);
-         
-        parsedToDos.forEach(function(toDo) {  
-            paintToDo(toDo.text)
-        }); // forEach
-    } // if end    
-} // loadToDos function
-
-function init() {
-      loadToDos();
-      //upBtn.addEventListener("click", ascendingSort);
-      //downBtn.addEventListener("click", descendingSort);  
-      toDoForm.addEventListener("submit", handleSubmit);
-}
-
-init();
  
