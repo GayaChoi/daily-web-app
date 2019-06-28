@@ -5,6 +5,36 @@
       <link rel="stylesheet" href="style.css"/>
       <meta charset="UTF-8">
   </head>
+  <script>
+    $(document).ready(function() {
+    
+    if(!Modernizr.input.placeholder){
+    
+      $('[placeholder]').focus(function() {
+        var input = $(this);
+        if (input.val() == input.attr('placeholder')) {
+        input.val('');
+        input.removeClass('placeholder');
+        }
+      }).blur(function() {
+        var input = $(this);
+        if (input.val() == '' || input.val() == input.attr('placeholder')) {
+        input.addClass('placeholder');
+        input.val(input.attr('placeholder'));
+        }
+      }).blur();
+      $('[placeholder]').parents('form').submit(function() {
+        $(this).find('[placeholder]').each(function() {
+        var input = $(this);
+        if (input.val() == input.attr('placeholder')) {
+          input.val('');
+        }
+        })
+      });
+    
+    }
+    });
+    </script>
   <body>
       <div class="head">
         <header>
@@ -33,6 +63,8 @@
             </ul>
           </div>
       </div>
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <script src="modernizr.js"></script>
       <script src="clock.js"></script>
       <script src="greeting.js"></script>
       <script src="todo.js"></script>
