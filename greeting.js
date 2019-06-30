@@ -24,7 +24,7 @@ const form = document.querySelector(".js-form"),
   function paintGreeting(text) { // 사용자 가 기입한 정보를 다시 form 에 기입하는 함수
         form.classList.remove(SHOWING_CN); // showing 클래스를 지워준다.즉,css 에 기입된 정보를 불러올수 없다.
         greeting.classList.add(SHOWING_CN); // h4 태그안에 클래스 가 작동되고 showing 클래스를 생성 해준뒤 css에 기입된 정보를 불러온다.
-        greeting.innerHTML = `Hello,${text}`; // h4 태그에 전송된 정보를 기입.
+        greeting.innerHTML = "Hello," + text; // h4 태그에 전송된 정보를 기입.
   }
 
   function loadName() {
