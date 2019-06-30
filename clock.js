@@ -6,9 +6,11 @@ function getTime() {
     const minutes = date.getMinutes(); 
     const hours = date.getHours();
 
-    clockTitle.innerText = `${hours < 10 ? `0${hours}`:hours}:${
-                            minutes < 10 ? `0${minutes}`:minutes
-                            }`; 
+    const textHours =  (hours < 10) ? "0" + hours : hours;
+    const textMinutes = (minutes < 10) ? "0" + minutes : minutes;
+
+    clockTitle.innerText = textHours + ":" + textMinutes;
+
 
                             // 10 보다 작다면 앞에 0을 표기 한다.
 }

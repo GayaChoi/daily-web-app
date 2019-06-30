@@ -3,9 +3,13 @@
   <head>
       <title>Aurora</title>
       <link rel="stylesheet" href="style.css"/>
+      <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+      <script src="modernizr.js"></script>
       <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=8; IE=10; IE=11; IE=Edge;" />
   </head>
   <script>
+    // cross-browser html5 placeholder 문제 해결 코드
     $(document).ready(function() {
     
     if(!Modernizr.input.placeholder){
@@ -63,8 +67,6 @@
             </ul>
           </div>
       </div>
-      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-      <script src="modernizr.js"></script>
       <script src="clock.js"></script>
       <script src="greeting.js"></script>
       <script src="todo.js"></script>
