@@ -25,7 +25,7 @@ function getWeather(lat, lng) { // 위치정보를 받고 기상 정보를 api �
 
         weather.innerHTML = '<img class="imageSize" src="https://openweathermap.org/img/w/10d.png">' +
                                      
-                            `${temperature + "°C" + " | "} ${country + " | "} ${place + " | "}`;
+                             temperature + "°C" + " | " + country + " | " + place + " | ";
 
     });// JSON 데이터를 받아올 수 있음.
 }

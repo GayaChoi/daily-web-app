@@ -137,6 +137,13 @@ form.form>input:focus,
 form.toDoForm>input:focus {
      outline: none;          
 }
+form.form>input,
+form.toDoForm>input
+::placeholder {
+    color: #ffffff; 
+    font-size: 20px; 
+    text-align: left;
+}
 /* webkit placeholder */
 form.form>input,
 form.toDoForm>input
@@ -148,7 +155,7 @@ form.toDoForm>input
 /* moz placeholder */
 form.form>input,
 form.toDoForm>input
-:-moz-placeholder {
+::-moz-placeholder { /* firefox 19+ */
     color: #ffffff; 
     font-size: 20px; 
     text-align: left;	
@@ -162,5 +169,21 @@ form.form>input::-moz-placeholder {
 form.toDoForm>input::-moz-placeholder {
    font-size: 15px; 
 }
-
+/* ms placeholder */
+form.form>input,
+form.toDoForm>input
+:-ms-input-placeholder {
+    color: #ffffff; 
+    font-size: 20px; 
+    text-align: left;	
+}
+form.form>input:-ms-input-placeholder {
+    opacity: 0.5;
+}
+form.form>input:-ms-input-placeholder {
+    opacity: 0.5;
+}
+form.toDoForm>input:-ms-input-placeholder {
+   font-size: 15px; 
+}
 
