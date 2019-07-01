@@ -9,9 +9,13 @@ function getWeather(lat, lng) { // 위치정보를 받고 기상 정보를 api �
     // # Mixed Content (혼합참조) 문제로 인한 버그 발생
     // # 해결 >>  http:// -> https:// 로 수정
     
+    const ADDRESS = "https://api.openweathermap.org/data/2.5/weather?id=524901" + 
+                     "&lat=" + lat + 
+                     "&lon=" + lng + 
+                     "&mode=JSON&units=metric&appId=" + API_KEY;
+
     //fech 객체를 통해 json 형태로 기상 정보를 받아옴 - 비동기(async) 식 제어
-    fetch(`https://api.openweathermap.org/data/2.5/weather?id=524901&lat=${lat}&lon=${lng}&mode=JSON&units=metric&appId=${API_KEY}`   
-    ).then(function(response) { // 응답을 받으면 json 으로 반환
+    fetch(ADDRESS).then(function(response) { // 응답을 받으면 json 으로 반환
       return response.json()    
     }).then(function(json) {    // 받는데 성공하면(state 200,브라우저의 network 탭 참고)
         const temperature = json.main.temp; // api 를 활용하여 온도를 불러옴
@@ -65,7 +69,6 @@ function loadCoords() { // local 에 위도,경도 정보를 불러오거나 설
 
 function init() {
    loadCoords(); // local 안의 위도,경도 를 설정하는 함수
-
 }
 
 init();
