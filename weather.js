@@ -22,7 +22,8 @@ function getWeather(lat, lng) { // 위치정보를 받고 기상 정보를 api �
         const country = json.sys.country;  // api 를 활용하여 국가를 불러옴
         const place = json.name; // api 를 활용하여 지역을 불러옴
         const icon = json.weather[0].icon; // 기본적으로 제공하는 날씨 아이콘 불러옴
-
+        
+        console.log(json);
         weather.innerHTML = '<img class="imageSize" src="https://openweathermap.org/img/w/10d.png">' +
                                      
                              temperature + "°C" + " | " + country + " | " + place + " | ";
