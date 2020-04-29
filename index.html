@@ -12,7 +12,7 @@
     // cross-browser html5 placeholder 문제 해결 코드
     $(document).ready(function() {
     
-    if(!Modernizr.input.placeholder){
+    if(!Modernizr.placeholder) {
     
       $('[placeholder]').focus(function() {
         var input = $(this);
