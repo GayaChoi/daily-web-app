@@ -186,4 +186,9 @@ form.form>input:-ms-input-placeholder {
 form.toDoForm>input:-ms-input-placeholder {
    font-size: 15px; 
 }
-
+a {
+   text-decoration: none;
+}
+a:hover {
+    color: #ffffff;
+}
